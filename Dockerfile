@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 FROM ruby:2.5
-RUN apt-get update -qq && apt-get install -y nodejs -yarn postgresql-client
+RUN apt-get update -qq && apt-get install -y nodejs -y yarn postgresql-client
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
