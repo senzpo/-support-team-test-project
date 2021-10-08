@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Start project: **docker-compose up**
+* Stop project: **docker-compose up**
 
-Things you may want to cover:
+* Create db: **docker-compose run web rake db:create**
+* Migrate db: **docker-compose run web rake db:migrate**
 
-* Ruby version
+After start project available http://localhost:3002
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* All routes: **rake routes**
