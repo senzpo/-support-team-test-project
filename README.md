@@ -1,7 +1,7 @@
 # README
 
 * Start project: **docker-compose up**
-* Stop project: **docker-compose up**
+* Stop project: **docker-compose down**
 
 * Create db: **docker-compose run web rake db:create**
 * Migrate db: **docker-compose run web rake db:migrate**
