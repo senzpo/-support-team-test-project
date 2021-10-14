@@ -14,4 +14,4 @@ services:
     ports:
       - "3002:3002"
     depends_on:
-      - db
+      - database

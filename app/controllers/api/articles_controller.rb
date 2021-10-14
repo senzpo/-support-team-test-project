@@ -1,5 +1,5 @@
 class Api::ArticlesController < ApplicationController
-  # respond_to :json
+  skip_before_action :verify_authenticity_token
 
   def index
     articles = Article.all
