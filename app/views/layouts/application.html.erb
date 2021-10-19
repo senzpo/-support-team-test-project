@@ -10,6 +10,16 @@
   </head>
 
   <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>  
+
+    <%= link_to 'Main page', root_path %>
+    <br>
+    <% if user_signed_in? %>
+      Hi, <%= current_user.email %>!
+    <% else %>
+      <%= link_to 'Log in', new_user_session_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
