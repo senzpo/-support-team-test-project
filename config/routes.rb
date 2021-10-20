@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :articles, only: %i[index show update create destroy]
   end
+
+  get 'protected', to: 'protected#index', as: :protected
 end
