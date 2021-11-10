@@ -1,10 +1,12 @@
 class ArticlesController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :remove_access_control_headers
 
   # GET /articles or /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.active
+    @articles = @articles.where("title ILIKE '#{params[:title]}'") if params[:title].present?
   end
 
   # GET /articles/1 or /articles/1.json
@@ -65,6 +67,13 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :text, :cover)
+      params.require(:article).permit(:title, :text, :cover, :visible)
+    end
+
+    def remove_access_control_headers
+      headers['Access-Control-Allow-Origin'] = '*'
+      headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
+      headers['Access-Control-Request-Method'] = '*'
+      headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'      
     end
 end
